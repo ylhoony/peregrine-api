@@ -43,5 +43,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # Database - MongoDB ORM
 gem 'mongoid', '~> 7.0.2'
 
-# Authentication - Devise
+# Authentication - Devise & JWT
 gem 'devise'
+gem 'jwt'

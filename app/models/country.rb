@@ -1,5 +1,6 @@
 class Country
   include Mongoid::Document
+  include Mongoid::Timestamps
 
   field :name, type: String
   field :iso_2, type: String

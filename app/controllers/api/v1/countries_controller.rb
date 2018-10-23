@@ -36,6 +36,6 @@ class Api::V1::CountriesController < ApplicationController
   end
 
   def country_params
-    params.require(:country).permit(:name, :iso_2, :iso_3, :active)
+    params.require(:country).permit(:name, :iso_2, :iso_3, :numeric, :active)
   end
 end

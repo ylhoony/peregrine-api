@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Api::V1::CountriesController < ApplicationController
+class Api::V1::CountriesController < ApiController
   before_action :set_country, only: %i[show update]
 
   def index

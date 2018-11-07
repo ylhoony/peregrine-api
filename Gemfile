@@ -46,3 +46,4 @@ gem 'mongoid', '~> 7.0.2'
 # Authentication - Devise & JWT
 gem 'devise'
 gem 'jwt'
+gem 'devise-jwt'

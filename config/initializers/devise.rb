@@ -9,7 +9,7 @@ Devise.setup do |config|
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
   # config.secret_key = '90f809ad529b5594429c151ff9e4e0089d510a37efd07a48087f1878e07ca5a2387c6903c25cff68b262ab77e90e04889f1511ee8297e4e62b16ae43b2d3cdb2'
-  
+
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
   # config.parent_controller = 'DeviseController'
@@ -287,4 +287,14 @@ Devise.setup do |config|
   # ActiveSupport.on_load(:devise_failure_app) do
   #   include Turbolinks::Controller
   # end
+
+  # Devise-JWT Secret key configuration
+  config.jwt do |jwt|
+    jwt.secret = ENV['DEVISE_JWT_SECRET_KEY']
+    jwt.expiration_time = 1.day.to_i
+    jwt.dispatch_requests = [
+      ['POST', %r{^/api/v1/sign_up$}],
+      ['POST', %r{^/api/v1/sign_in$}]
+    ]
+  end
 end

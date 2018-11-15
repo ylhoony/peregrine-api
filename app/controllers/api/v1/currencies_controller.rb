@@ -1,4 +1,4 @@
-class Api::V1::CurrenciesController < ApiController
+class Api::V1::CurrenciesController < Api::V1::ApiController
   before_action :set_currency, only: %i[show update]
 
   def index

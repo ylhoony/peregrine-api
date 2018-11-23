@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       devise_scope :user do
-        get "current_user", to: "api#current_user"
+        get "authenticate", to: "api#current_user"
         # User Sign Up
         post "sign_up", to: "users/registrations#create"
         # get "sign_up_cancel", to: "users/registrations#cancel"
@@ -23,6 +23,8 @@ Rails.application.routes.draw do
         put "users/password", to: "users/passwords#update"
       end
 
+      resources :accounts, only: %i[index create show update]
+      resources :employees, only: %i[index create show update]
       resources :countries, only: %i[index create show update]
       resources :currencies, only: %i[index create show update]
 

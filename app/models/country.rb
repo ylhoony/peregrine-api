@@ -2,6 +2,8 @@ class Country
   include Mongoid::Document
   include Mongoid::Timestamps
 
+  has_many :accounts
+
   field :name, type: String
   field :iso_2, type: String
   field :iso_3, type: String

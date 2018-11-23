@@ -25,6 +25,16 @@ class Api::V1::Users::RegistrationsController < Devise::RegistrationsController
       if resource.active_for_authentication?
         # set_flash_message! :notice, :signed_up
         sign_up(resource_name, resource)
+
+        payload = {
+          sub: resource.id.to_str,
+          iat: Time.now.to_i,
+          exp: Time.now.to_i + 24 * 60 * 60,
+        }
+
+        token = JwtService.encode(payload: payload)
+
+        response['Authorization'] = token
         render json: { current_user: resource }
       else
         # set_flash_message! :notice, :"signed_up_but_#{resource.inactive_message}"
